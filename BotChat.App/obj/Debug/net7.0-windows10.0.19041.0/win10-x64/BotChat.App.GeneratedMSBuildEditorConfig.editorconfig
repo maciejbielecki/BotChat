@@ -1,0 +1,89 @@
+is_global = true
+build_property.TargetFramework = net7.0-windows10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BotChat.App
+build_property.ProjectDir = C:\Users\macie\source\repos\BotChat\BotChat.App\
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Pages/AccountPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Pages.AccountPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\AccountPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\AccountPage.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Pages/ImagePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Pages.ImagePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\ImagePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\ImagePage.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Pages/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Pages.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\LoginPage.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Pages/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Pages.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\MainPage.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Pages/RegisterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Pages.RegisterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\RegisterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\RegisterPage.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Pages/SettingsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Pages.SettingsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\SettingsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\SettingsPage.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Views/NavigationView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Views.NavigationView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\NavigationView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\NavigationView.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Views/TextInputView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Views.TextInputView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\TextInputView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\TextInputView.xaml
+
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Views/ViewCells/MessageViewCell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Views.ViewCells.MessageViewCell.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ViewCells\MessageViewCell.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ViewCells\MessageViewCell.xaml

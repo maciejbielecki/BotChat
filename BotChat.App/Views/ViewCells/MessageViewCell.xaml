@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ViewCell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BotChat.App.Views.ViewCells.MessageViewCell">
+    <VerticalStackLayout x:Name="MainVSL">
+        <Frame IsVisible="{Binding IsHuman}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="End" Padding="10" Grid.Column="1">
+            <HorizontalStackLayout Spacing="10">
+                <Label MaximumWidthRequest="200" TextColor="{StaticResource MainDarkColor}" Text="{Binding Text}" />
+                <Frame VerticalOptions="Start" Padding="0" WidthRequest="50" BorderColor="{StaticResource MainDarkColor}" HeightRequest="50" CornerRadius="25">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource MainDarkColor}" Text="You" />
+                </Frame>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame IsVisible="{Binding IsAI}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
+            <HorizontalStackLayout Spacing="10">
+                <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainDarkColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
+                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource MainDarkColor}" Text="{Binding Type}" />
+                </Frame>
+                <Label TextColor="{StaticResource MainDarkColor}" MaximumWidthRequest="200" Text="{Binding Text}" />
+            </HorizontalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+
+</ViewCell>

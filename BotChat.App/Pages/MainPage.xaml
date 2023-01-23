@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:BotChat.App.Views"
+             xmlns:local="clr-namespace:BotChat.App.Views.ViewCells"
+             x:Class="BotChat.App.MainPage"
+             Shell.FlyoutBehavior="Disabled"
+             BackgroundColor="Black"
+             Shell.NavBarIsVisible="False">
+
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <VerticalStackLayout x:Name="Navigation" Grid.Row="0">
+        </VerticalStackLayout>
+        <ListView x:Name="ChatListView" SeparatorColor="Black" BackgroundColor="Black" ItemsSource="{Binding Answers}" Grid.Row="1" HasUnevenRows="True" IsPullToRefreshEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <local:MessageViewCell Text="{Binding Text}" Type="{Binding Type}" Date="{Binding Created}" IsAI="{Binding IsAI}" IsHuman="{Binding IsHuman}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <HorizontalStackLayout x:Name="TextInput" BackgroundColor="Black" Grid.Row="2"></HorizontalStackLayout>
+    </Grid>
+
+</ContentPage>

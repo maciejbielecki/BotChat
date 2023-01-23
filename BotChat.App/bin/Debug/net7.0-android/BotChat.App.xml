@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BotChat.App</name>
+    </assembly>
+    <members>
+        <member name="F:BotChat.App.ViewModels.HeaderViewModel.accountButtonClickCommand">
+            <summary>The backing field for <see cref="P:BotChat.App.ViewModels.HeaderViewModel.AccountButtonClickCommand"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.HeaderViewModel.AccountButtonClickCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BotChat.App.ViewModels.HeaderViewModel.AccountButtonClick"/>.</summary>
+        </member>
+        <member name="F:BotChat.App.ViewModels.HeaderViewModel.settingsButtonClickCommand">
+            <summary>The backing field for <see cref="P:BotChat.App.ViewModels.HeaderViewModel.SettingsButtonClickCommand"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.HeaderViewModel.SettingsButtonClickCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BotChat.App.ViewModels.HeaderViewModel.SettingsButtonClick"/>.</summary>
+        </member>
+        <member name="F:BotChat.App.ViewModels.HeaderViewModel.chatButtonClickCommand">
+            <summary>The backing field for <see cref="P:BotChat.App.ViewModels.HeaderViewModel.ChatButtonClickCommand"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.HeaderViewModel.ChatButtonClickCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BotChat.App.ViewModels.HeaderViewModel.ChatButtonClick"/>.</summary>
+        </member>
+        <member name="F:BotChat.App.ViewModels.HeaderViewModel.imagesButtonClickCommand">
+            <summary>The backing field for <see cref="P:BotChat.App.ViewModels.HeaderViewModel.ImagesButtonClickCommand"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.HeaderViewModel.ImagesButtonClickCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BotChat.App.ViewModels.HeaderViewModel.ImagesButtonClick"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.MainViewModel.Answers">
+            <inheritdoc cref="F:BotChat.App.ViewModels.MainViewModel.answers"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.MessageViewCellViewModel.Text">
+            <inheritdoc cref="F:BotChat.App.ViewModels.MessageViewCellViewModel.text"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.MessageViewCellViewModel.Type">
+            <inheritdoc cref="F:BotChat.App.ViewModels.MessageViewCellViewModel.type"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.MessageViewCellViewModel.Date">
+            <inheritdoc cref="F:BotChat.App.ViewModels.MessageViewCellViewModel.date"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.SelectedLanguage">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.selectedLanguage"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.SelectedModel">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.selectedModel"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.IsEnabledAIVoice">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.isEnabledAIVoice"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.Pitch">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.pitch"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.Volume">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.volume"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.Languages">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.languages"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.SettingsViewModel.Models">
+            <inheritdoc cref="F:BotChat.App.ViewModels.SettingsViewModel.models"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.TextInputViewModel.Message">
+            <inheritdoc cref="F:BotChat.App.ViewModels.TextInputViewModel.message"/>
+        </member>
+        <member name="P:BotChat.App.ViewModels.TextInputViewModel.OnSendMessage">
+            <inheritdoc cref="F:BotChat.App.ViewModels.TextInputViewModel.onSendMessage"/>
+        </member>
+        <member name="F:BotChat.App.ViewModels.TextInputViewModel.micButtonClickCommand">
+            <summary>The backing field for <see cref="P:BotChat.App.ViewModels.TextInputViewModel.MicButtonClickCommand"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.TextInputViewModel.MicButtonClickCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BotChat.App.ViewModels.TextInputViewModel.MicButtonClick"/>.</summary>
+        </member>
+        <member name="F:BotChat.App.ViewModels.TextInputViewModel.sendButtonClickCommand">
+            <summary>The backing field for <see cref="P:BotChat.App.ViewModels.TextInputViewModel.SendButtonClickCommand"/>.</summary>
+        </member>
+        <member name="P:BotChat.App.ViewModels.TextInputViewModel.SendButtonClickCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:BotChat.App.ViewModels.TextInputViewModel.SendButtonClick"/>.</summary>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_DatePicker.TextColorTo(Microsoft.Maui.Controls.DatePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Editor.TextColorTo(Microsoft.Maui.Controls.Editor,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Entry.TextColorTo(Microsoft.Maui.Controls.Entry,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Label.TextColorTo(Microsoft.Maui.Controls.Label,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Picker.TextColorTo(Microsoft.Maui.Controls.Picker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_RadioButton.TextColorTo(Microsoft.Maui.Controls.RadioButton,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_SearchBar.TextColorTo(Microsoft.Maui.Controls.SearchBar,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_TimePicker.TextColorTo(Microsoft.Maui.Controls.TimePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+    </members>
+</doc>

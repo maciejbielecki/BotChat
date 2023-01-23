@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BotChat.App.SettingsPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <VerticalStackLayout x:Name="Navigation"  Grid.Row="0">
+        </VerticalStackLayout>
+        <ScrollView Grid.Row="1" Padding="10">
+            <VerticalStackLayout>
+                <Label FontSize="24" HorizontalOptions="Center" Text="Settings" />
+                <Grid RowSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="50"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Text="Enable AIVoice" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0"></Label>
+                    <Switch x:Name="EnabledAIVoice" ThumbColor="{StaticResource MainRedColor}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" Toggled="EnabledAIVoice_Toggled" IsToggled="{Binding IsEnabledAIVoice}"></Switch>
+
+                    <Label x:Name="LanguageText" TextColor="{StaticResource MainRedColor}" Text="Language" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="0"></Label>
+                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
+                        <Picker x:Name="LanguagePicker" TextColor="{StaticResource MainRedColor}" WidthRequest="100" HorizontalTextAlignment="Center" SelectedIndexChanged="LanguagePicker_SelectedIndexChanged" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"></Picker>
+                    </Frame>
+
+                    <Label x:Name="ModelText" TextColor="{StaticResource MainRedColor}" Text="ChatGPT AI Model" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"></Label>
+                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
+                        <Picker x:Name="ModelPicker" TextColor="{StaticResource MainRedColor}" WidthRequest="100" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
+                    </Frame>
+
+                    <Label Text="Pitch (0-2)" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="0"></Label>
+                    <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
+                        <Entry x:Name="PitchEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="100" HorizontalOptions="Start" TextChanged="PitchEntry_TextChanged" Text="{Binding Pitch}"></Entry>
+                    </Frame>
+
+                    <Label Text="Volume (0-2)" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="0"></Label>
+                    <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
+                        <Entry x:Name="VolumeEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="100" HorizontalOptions="Start" TextChanged="VolumeEntry_TextChanged" Text="{Binding Volume}"></Entry>
+                    </Frame>
+
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="BotChat.App.Views.TextInputView">
+
+    <Frame Margin="10" HeightRequest="80" CornerRadius="20" BackgroundColor="{StaticResource MainRedColor}" BorderColor="{StaticResource MainRedColor}">
+        <HorizontalStackLayout>
+            <ImageButton x:Name="micBtn" WidthRequest="40" Source="mic.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MicButtonClickCommand}">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
+                </ImageButton.Behaviors>
+            </ImageButton>
+            <Entry x:Name="MessageEntry" PlaceholderColor="{StaticResource MainDarkColor}" TextColor="{StaticResource MainDarkColor}" Placeholder="Enter your message..." Text="{Binding Message}"/>
+            <ImageButton x:Name="sendBtn"  WidthRequest="40" Source="send.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SendButtonClickCommand}">
+                <ImageButton.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
+                </ImageButton.Behaviors>
+            </ImageButton>
+        </HorizontalStackLayout>
+    </Frame>
+</ContentView>
