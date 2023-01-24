@@ -3,8 +3,9 @@
     public class Settings
     {
         public string Language { get; set; }
-        public bool IsEnabledAIVoice { get; set; }
-        public string ChatGPTAIModel { get; set; }
+        public bool IsEnabledAIVoice { get; set; } = true;
+        public bool IsEnabledAutosend { get; set; } = true;
+        public string ChatGPTAIModel { get; set; } = "text-davinci-003";
         public double SpeechOptionsPitch { get; set; } = 1.5f;
         public double SpeechOptionsVolume { get; set; } = 0.75f;
     }

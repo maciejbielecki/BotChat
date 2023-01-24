@@ -37,5 +37,15 @@ namespace BotChat.App
         {
             _viewModel.EnabledAIVoiceToggled(sender, e);
         }
+
+        private void EnabledAutosend_Toggled(object sender, ToggledEventArgs e)
+        {
+            _viewModel.EnabledAutosendToggled(sender, e);
+        }
+
+        private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }

@@ -16,7 +16,12 @@
 
         protected override bool OnBackButtonPressed()
         {
-            return false;
+            if (Shell.Current.CurrentPage is SettingsPage)
+            {
+                base.OnBackButtonPressed();
+               
+            }
+            return true;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BotChat.App.Services;
+﻿using BotChat.App.Platforms;
+using BotChat.App.Services;
 using BotChat.App.ViewModels;
 using BotChat.App.Views;
 using ChatGPT;
@@ -47,7 +48,8 @@ namespace BotChat.App.Extensions
                 .AddScoped<IHttpClientService, HttpClientService>()
                 .AddScoped<IChatGPTService, ChatGPTService>()
                 .AddScoped<ISpeechService, SpeechService>()
-                .AddScoped<IUserService, UserService>();
+                .AddScoped<IUserService, UserService>()
+                .AddSingleton<ISpeechToText, SpeechToTextImplementation>();
         }
     }
 }

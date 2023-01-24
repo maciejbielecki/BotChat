@@ -6,6 +6,9 @@
              Shell.NavBarIsVisible="False">
 
     <Grid>
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"></SwipeGestureRecognizer>
+        </Grid.GestureRecognizers>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -31,13 +34,16 @@
                     <Label Text="Enable AIVoice" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0"></Label>
                     <Switch x:Name="EnabledAIVoice" ThumbColor="{StaticResource MainRedColor}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" Toggled="EnabledAIVoice_Toggled" IsToggled="{Binding IsEnabledAIVoice}"></Switch>
 
-                    <Label x:Name="LanguageText" TextColor="{StaticResource MainRedColor}" Text="Language" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="0"></Label>
-                    <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
+                    <Label Text="Autosend voice message" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="0"></Label>
+                    <Switch x:Name="EnabledAutosend" ThumbColor="{StaticResource MainRedColor}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Toggled="EnabledAutosend_Toggled"  IsToggled="{Binding IsEnabledAutosend}"></Switch>
+                    
+                    <Label x:Name="LanguageText" TextColor="{StaticResource MainRedColor}" Text="Language" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"></Label>
+                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
                         <Picker x:Name="LanguagePicker" TextColor="{StaticResource MainRedColor}" WidthRequest="100" HorizontalTextAlignment="Center" SelectedIndexChanged="LanguagePicker_SelectedIndexChanged" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"></Picker>
                     </Frame>
 
-                    <Label x:Name="ModelText" TextColor="{StaticResource MainRedColor}" Text="ChatGPT AI Model" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"></Label>
-                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
+                    <Label x:Name="ModelText" TextColor="{StaticResource MainRedColor}" Text="ChatGPT AI Model" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="0"></Label>
+                    <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
                         <Picker x:Name="ModelPicker" TextColor="{StaticResource MainRedColor}" WidthRequest="100" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
                     </Frame>
 

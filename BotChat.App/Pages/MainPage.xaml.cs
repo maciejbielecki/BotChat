@@ -1,6 +1,7 @@
 ﻿using BotChat.App.Services;
 using BotChat.App.ViewModels;
 using BotChat.App.Views;
+using ChatGPT.Models;
 
 namespace BotChat.App
 {
@@ -15,14 +16,18 @@ namespace BotChat.App
             BindingContext = _viewModel = viewModel;
 
             Navigation.Add(new NavigationView(serviceProvider.GetService<HeaderViewModel>()));
-            TextInput.Add(new TextInputView(serviceProvider.GetService<TextInputViewModel>()));
+            TextInput.Add(new TextInputView(serviceProvider.GetService<TextInputViewModel>(), TextInputType.Text));
             _viewModel.ChatListView = ChatListView;
 
             MainThread.InvokeOnMainThreadAsync(async() =>
             {
                 await serviceProvider.GetService<IUserService>().Initialize();
-                await serviceProvider.GetService<ISpeechService>().Initialize();
             });
+        }
+
+        private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            //await Shell.Current.GoToAsync(nameof(ImagePage));
         }
     }
 }

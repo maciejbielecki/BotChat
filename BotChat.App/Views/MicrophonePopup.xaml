@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Color="Transparent"
+             x:Class="BotChat.App.Views.MicrophonePopup">
+    <Frame x:Name="MainVSL" BackgroundColor="White" Padding="0" WidthRequest="200" HeightRequest="200" CornerRadius="100">
+        <StackLayout>
+            <Image x:Name="MicImage" VerticalOptions="Center" HorizontalOptions="Center" Source="mic.svg" HeightRequest="100" Margin="45">
+                <Image.Behaviors>
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                </Image.Behaviors>
+            </Image>
+        </StackLayout>
+    </Frame>
+</toolkit:Popup>
+    
+    

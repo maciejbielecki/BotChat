@@ -12,15 +12,15 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>BotChat.App</ApplicationTitle>
+		<ApplicationTitle>AI Voice</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.botchat.app</ApplicationId>
+		<ApplicationId>com.maciejbielecki.aivoice</ApplicationId>
 		<ApplicationIdGuid>ed66b989-364b-46c2-a738-e7346bf16d1c</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
+		<ApplicationVersion>2</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -32,10 +32,8 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#cb4052" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#193b59" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -49,18 +47,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Images\chat.svg" />
+	  <None Remove="Resources\Images\content_copy.svg" />
 	  <None Remove="Resources\Images\image.svg" />
 	  <None Remove="Resources\Images\mic.svg" />
 	  <None Remove="Resources\Images\person.svg" />
 	  <None Remove="Resources\Images\send.svg" />
 	  <None Remove="Resources\Images\settings.svg" />
+	  <None Remove="Resources\Images\volume_off.svg" />
+	  <None Remove="Resources\Images\volume_up.svg" />
+	  <None Remove="Resources\Splash\splash.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiIcon Include="Resources\AppIcon\appicon.svg" Color="#193b59" />
+	  <MauiSplashScreen Include="Resources\Splash\splash.svg" BaseSize="180,208" Color="#193b59">
+	    <Color>#193b59</Color>
+	  </MauiSplashScreen>
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="System.Speech" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -83,6 +94,9 @@
 	  </Compile>
 	  <Compile Update="Pages\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\MicrophonePopup.xaml.cs">
+	    <DependentUpon>MicrophonePopup.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\TextInputView.xaml.cs">
 	    <DependentUpon>TextInputView.xaml</DependentUpon>
@@ -109,6 +123,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MicrophonePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TextInputView.xaml">

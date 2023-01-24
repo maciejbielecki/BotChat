@@ -6,9 +6,9 @@ namespace BotChat.App.Services
     {
         Task<Locale> GetLocale(string language);
         Task<IEnumerable<Locale>> GetLocales();
-        void Speak(string text);
+        void Start(string text, bool isManual = false);
+        void Stop();
         string RecordingToText();
-        Task Initialize();
     }
     public class SpeechService : ISpeechService
     {
@@ -16,24 +16,20 @@ namespace BotChat.App.Services
 
         private Locale _locale;
 
+        private CancellationTokenSource cts;
+
         public SpeechService(IUserService userService)
         {
             _userService = userService;
-            //Initialize();
         }
 
         public async Task<Locale> GetLocale(string language)
         {
-            return (await TextToSpeech.Default.GetLocalesAsync()).FirstOrDefault(l => l.Language == language);
+            return (await TextToSpeech.Default.GetLocalesAsync()).FirstOrDefault(l => l.Name == language);
         }
         public async Task<IEnumerable<Locale>> GetLocales()
         {
             return await TextToSpeech.Default.GetLocalesAsync();
-        }
-
-        public async Task Initialize()
-        {
-            _locale = !string.IsNullOrEmpty(_userService.Settings?.Language) ? await GetLocale(_userService.Settings?.Language) : null;
         }
 
         public string RecordingToText()
@@ -41,19 +37,25 @@ namespace BotChat.App.Services
             throw new NotImplementedException();
         }
 
-        public async void Speak(string text)
+        public async void Start(string text, bool isManual = false)
         {
-            if (_userService.Settings.IsEnabledAIVoice)
+            if (_userService.Settings.IsEnabledAIVoice || isManual)
             {
                 SpeechOptions options = new SpeechOptions()
                 {
                     Pitch = 1.5f,   // 0.0 - 2.0
                     Volume = 0.75f, // 0.0 - 1.0
-                    Locale = _locale
+                    Locale = !string.IsNullOrEmpty(_userService.Settings?.Language) ? await GetLocale(_userService.Settings?.Language) : null
                 };
+                cts = new();
 
-                await TextToSpeech.Default.SpeakAsync(text, options);
+                await TextToSpeech.Default.SpeakAsync(text, options, cts.Token);
             }
+        }
+
+        public void Stop()
+        {
+            cts.Cancel();
         }
     }
 }

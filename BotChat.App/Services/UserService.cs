@@ -7,6 +7,7 @@ namespace BotChat.App.Services
         Settings Settings { get; set; }
         Task Initialize();
         void SetIsEnabledAIVoice(bool value);
+        void SetIsEnabledAutosend(bool value);
         void SetChatGPTAIModel(string value);
         void SetLanguage(string value);
         void SetSpeechOptionsPitch(double value);
@@ -76,6 +77,13 @@ namespace BotChat.App.Services
         {
             var settings = Settings;
             settings.Language = value;
+            Settings = settings;
+        }
+
+        public void SetIsEnabledAutosend(bool value)
+        {
+            var settings = Settings;
+            settings.IsEnabledAutosend = value;
             Settings = settings;
         }
     }

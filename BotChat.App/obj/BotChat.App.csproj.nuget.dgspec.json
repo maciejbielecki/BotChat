@@ -126,6 +126,10 @@
               "version": "[7.0.49, )",
               "autoReferenced": true
             },
+            "System.Speech": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Xamarin.Android.Glide": {
               "target": "Package",
               "version": "[4.13.2.2, )",
@@ -251,6 +255,10 @@
               "target": "Package",
               "version": "[7.0.49, )",
               "autoReferenced": true
+            },
+            "System.Speech": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -322,6 +330,10 @@
               "target": "Package",
               "version": "[7.0.49, )",
               "autoReferenced": true
+            },
+            "System.Speech": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -410,6 +422,10 @@
               "target": "Package",
               "version": "[1.1.5, )",
               "autoReferenced": true
+            },
+            "System.Speech": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -426,6 +442,10 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[7.0.0, 7.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
               "version": "[7.0.0, 7.0.0]"
             },
             {
@@ -475,6 +495,9 @@
           "#import": []
         },
         "iossimulator-x64": {
+          "#import": []
+        },
+        "maccatalyst-arm64": {
           "#import": []
         },
         "maccatalyst-x64": {

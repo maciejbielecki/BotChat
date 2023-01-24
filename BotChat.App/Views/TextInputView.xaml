@@ -4,17 +4,17 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="BotChat.App.Views.TextInputView">
 
-    <Frame Margin="10" HeightRequest="80" CornerRadius="20" BackgroundColor="{StaticResource MainRedColor}" BorderColor="{StaticResource MainRedColor}">
+    <Frame Margin="10" HeightRequest="80" CornerRadius="20" BackgroundColor="{StaticResource MainDarkColor}" BorderColor="{StaticResource MainDarkColor}">
         <HorizontalStackLayout>
             <ImageButton x:Name="micBtn" WidthRequest="40" Source="mic.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MicButtonClickCommand}">
                 <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
                 </ImageButton.Behaviors>
             </ImageButton>
-            <Entry x:Name="MessageEntry" PlaceholderColor="{StaticResource MainDarkColor}" TextColor="{StaticResource MainDarkColor}" Placeholder="Enter your message..." Text="{Binding Message}"/>
+            <Entry x:Name="MessageEntry" PlaceholderColor="{StaticResource MainRedColor}" TextColor="{StaticResource MainRedColor}" Placeholder="Enter your message..." Text="{Binding Message}"/>
             <ImageButton x:Name="sendBtn"  WidthRequest="40" Source="send.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SendButtonClickCommand}">
                 <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
                 </ImageButton.Behaviors>
             </ImageButton>
         </HorizontalStackLayout>

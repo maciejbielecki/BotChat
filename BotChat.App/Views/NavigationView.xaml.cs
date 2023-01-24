@@ -1,5 +1,4 @@
 using BotChat.App.ViewModels;
-using System.Threading.Tasks;
 
 namespace BotChat.App.Views;
 

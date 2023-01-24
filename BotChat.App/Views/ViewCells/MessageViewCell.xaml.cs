@@ -56,4 +56,27 @@ public partial class MessageViewCell : ViewCell
         InitializeComponent();
         MainVSL.Padding = new Thickness(5, 15, 0, 15);
     }
+
+    private void VolumeOffBtn_Clicked(object sender, EventArgs e)
+    {
+        (Shell.Current.CurrentPage.BindingContext as MainViewModel).VolumeOff();
+    }
+
+    private void VolumeUpBtn_Clicked(object sender, EventArgs e)
+    {
+        var imageButton = (ImageButton)sender;
+        var vsl = imageButton.Parent.Parent as VerticalStackLayout;
+        var hsl = vsl.Children.First() as HorizontalStackLayout;
+        var text = (hsl.Last() as Label).Text;
+        (Shell.Current.CurrentPage.BindingContext as MainViewModel).VolumeUp(text);
+    }
+
+    private void CopyContentBtn_Clicked(object sender, EventArgs e)
+    {
+        var imageButton = (ImageButton)sender;
+        var vsl = imageButton.Parent.Parent as VerticalStackLayout;
+        var hsl = vsl.Children.First() as HorizontalStackLayout;
+        var text = (hsl.Last() as Label).Text;
+        (Shell.Current.CurrentPage.BindingContext as MainViewModel).CopyContent(text);
+    }
 }

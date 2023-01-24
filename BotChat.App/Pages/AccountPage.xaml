@@ -6,17 +6,18 @@
              Shell.NavBarIsVisible="False">
 
     <Grid>
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"></SwipeGestureRecognizer>
+        </Grid.GestureRecognizers>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <VerticalStackLayout x:Name="Navigation" BackgroundColor="Green" Grid.Row="0">
         </VerticalStackLayout>
-        <VerticalStackLayout BackgroundColor="Red" Grid.Row="1">
+        <VerticalStackLayout BackgroundColor="Black" Grid.Row="1">
             <Label Text="AccountPage" />
         </VerticalStackLayout>
-        <HorizontalStackLayout BackgroundColor="Blue" Grid.Row="2"></HorizontalStackLayout>
 
     </Grid>
 

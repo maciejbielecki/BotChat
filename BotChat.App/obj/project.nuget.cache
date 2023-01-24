@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bonu68GNayTbw1oa1dNfnT1Z0I37Ow8aTB0GCK8kn3T+jU7E+cZM2fxxoKMCynZMDqnxHxpg5pVQ//BLcr01PA==",
+  "dgSpecHash": "Z1+8gTB4b9NxA7aDKvflfr3F+odVPxHm8F5CTtGfKyViZuKiUmBmkcXjOIj2yaRzbDyP+h7tHsG+BNNdNcf7Pw==",
   "success": true,
   "projectFilePath": "C:\\Users\\macie\\source\\repos\\BotChat\\BotChat.App\\BotChat.App.csproj",
   "expectedPackageFiles": [
@@ -137,6 +137,7 @@
     "C:\\Users\\macie\\.nuget\\packages\\system.security.cryptography.x509certificates\\4.3.0\\system.security.cryptography.x509certificates.4.3.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\system.security.principal\\4.3.0\\system.security.principal.4.3.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\system.security.principal.windows\\4.3.0\\system.security.principal.windows.4.3.0.nupkg.sha512",
+    "C:\\Users\\macie\\.nuget\\packages\\system.speech\\7.0.0\\system.speech.7.0.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
@@ -230,6 +231,7 @@
     "C:\\Users\\macie\\.nuget\\packages\\xamarin.kotlin.stdlib.jdk8\\1.7.10\\xamarin.kotlin.stdlib.jdk8.1.7.10.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\xamarin.kotlinx.coroutines.android\\1.6.4\\xamarin.kotlinx.coroutines.android.1.6.4.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\xamarin.kotlinx.coroutines.core.jvm\\1.6.4\\xamarin.kotlinx.coroutines.core.jvm.1.6.4.nupkg.sha512",
+    "C:\\Users\\macie\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\7.0.0\\microsoft.netcore.app.crossgen2.win-x64.7.0.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.27\\microsoft.windows.sdk.net.ref.10.0.19041.27.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.0\\microsoft.aspnetcore.app.runtime.win-x64.7.0.0.nupkg.sha512",
     "C:\\Users\\macie\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.0\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.0.nupkg.sha512",

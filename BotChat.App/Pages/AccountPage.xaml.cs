@@ -10,5 +10,10 @@ namespace BotChat.App
             InitializeComponent();
             Navigation.Add(new NavigationView(serviceProvider.GetService<HeaderViewModel>()));
         }
+
+        private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
+        {
+            await Shell.Current.GoToAsync("..");
+        }
     }
 }

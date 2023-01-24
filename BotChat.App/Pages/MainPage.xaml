@@ -9,6 +9,9 @@
              Shell.NavBarIsVisible="False">
 
     <Grid BackgroundColor="Black">
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"></SwipeGestureRecognizer>
+        </Grid.GestureRecognizers>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -16,7 +19,7 @@
         </Grid.RowDefinitions>
         <VerticalStackLayout x:Name="Navigation" Grid.Row="0">
         </VerticalStackLayout>
-        <ListView x:Name="ChatListView" SeparatorColor="Black" BackgroundColor="Black" ItemsSource="{Binding Answers}" Grid.Row="1" HasUnevenRows="True" IsPullToRefreshEnabled="False">
+        <ListView x:Name="ChatListView" SeparatorColor="Black" BackgroundColor="Black" ItemsSource="{Binding Answers}" Grid.Row="1" HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="False">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <local:MessageViewCell Text="{Binding Text}" Type="{Binding Type}" Date="{Binding Created}" IsAI="{Binding IsAI}" IsHuman="{Binding IsHuman}" />

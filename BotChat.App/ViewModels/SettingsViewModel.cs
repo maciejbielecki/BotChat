@@ -1,5 +1,4 @@
-﻿using Android.OS;
-using BotChat.App.Services;
+﻿using BotChat.App.Services;
 using ChatGPT;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
@@ -19,6 +18,9 @@ namespace BotChat.App.ViewModels
 
         [ObservableProperty]
         bool isEnabledAIVoice;
+
+        [ObservableProperty]
+        bool isEnabledAutosend;
 
         [ObservableProperty]
         string pitch;
@@ -42,11 +44,13 @@ namespace BotChat.App.ViewModels
 
         public async void Initialize()
         {
-            Models = new((await _chatGPTService.GetGtpModels()).Data.Select(d => d.Id));
-            Languages = new((await _speechService.GetLocales()).Select(l => l.Language));
+            var test = await _speechService.GetLocales();
+            Models = new(_chatGPTService.Models.Select(d => d.Id).OrderBy(d => d));
+            Languages = new((await _speechService.GetLocales()).Select(l => l.Name).OrderBy(l => l));
             SelectedLanguage = string.IsNullOrEmpty(_userService.Settings.Language) ? Languages.First() : _userService.Settings.Language;
             SelectedModel = string.IsNullOrEmpty(_userService.Settings.ChatGPTAIModel) ? "text-davinci-003" : _userService.Settings.ChatGPTAIModel;
             IsEnabledAIVoice = _userService.Settings.IsEnabledAIVoice;
+            IsEnabledAutosend = _userService.Settings.IsEnabledAutosend;
             Pitch = _userService.Settings.SpeechOptionsPitch.ToString().Replace(".", ",");
             Volume = _userService.Settings.SpeechOptionsVolume.ToString().Replace(".", ",");
         }
@@ -99,6 +103,12 @@ namespace BotChat.App.ViewModels
         {
             var toggle = (Switch)sender;
             _userService.SetIsEnabledAIVoice(toggle.IsToggled);
+        }
+
+        public void EnabledAutosendToggled(object sender, ToggledEventArgs e)
+        {
+            var toggle = (Switch)sender;
+            _userService.SetIsEnabledAutosend(toggle.IsToggled);
         }
     }
 }

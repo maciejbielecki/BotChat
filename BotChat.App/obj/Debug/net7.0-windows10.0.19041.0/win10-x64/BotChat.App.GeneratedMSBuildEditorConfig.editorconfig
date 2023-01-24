@@ -70,6 +70,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Resources.Styl
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
+[C:/Users/macie/source/repos/BotChat/BotChat.App/Views/MicrophonePopup.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Views.MicrophonePopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MicrophonePopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MicrophonePopup.xaml
+
 [C:/Users/macie/source/repos/BotChat/BotChat.App/Views/NavigationView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = BotChat.App.Views.NavigationView.xaml
