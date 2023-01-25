@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="BotChat.App.SettingsPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False">
-
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{StaticResource MainDarkColor}" StatusBarStyle="LightContent" />
+    </ContentPage.Behaviors>
+    
     <Grid>
         <Grid.GestureRecognizers>
             <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped"></SwipeGestureRecognizer>
@@ -38,23 +42,23 @@
                     <Switch x:Name="EnabledAutosend" ThumbColor="{StaticResource MainRedColor}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Toggled="EnabledAutosend_Toggled"  IsToggled="{Binding IsEnabledAutosend}"></Switch>
                     
                     <Label x:Name="LanguageText" TextColor="{StaticResource MainRedColor}" Text="Language" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"></Label>
-                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
-                        <Picker x:Name="LanguagePicker" TextColor="{StaticResource MainRedColor}" WidthRequest="100" HorizontalTextAlignment="Center" SelectedIndexChanged="LanguagePicker_SelectedIndexChanged" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"></Picker>
+                    <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="150" HeightRequest="50">
+                        <Picker x:Name="LanguagePicker" TextColor="{StaticResource MainRedColor}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="LanguagePicker_SelectedIndexChanged" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"></Picker>
                     </Frame>
 
                     <Label x:Name="ModelText" TextColor="{StaticResource MainRedColor}" Text="ChatGPT AI Model" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="0"></Label>
-                    <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
-                        <Picker x:Name="ModelPicker" TextColor="{StaticResource MainRedColor}" WidthRequest="100" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
+                    <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="150" HeightRequest="50">
+                        <Picker x:Name="ModelPicker" TextColor="{StaticResource MainRedColor}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
                     </Frame>
 
                     <Label Text="Pitch (0-2)" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="0"></Label>
-                    <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
-                        <Entry x:Name="PitchEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="100" HorizontalOptions="Start" TextChanged="PitchEntry_TextChanged" Text="{Binding Pitch}"></Entry>
+                    <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
+                        <Entry x:Name="PitchEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="PitchEntry_TextChanged" Text="{Binding Pitch}"></Entry>
                     </Frame>
 
                     <Label Text="Volume (0-2)" TextColor="{StaticResource MainRedColor}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="0"></Label>
-                    <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="100" HeightRequest="50">
-                        <Entry x:Name="VolumeEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="100" HorizontalOptions="Start" TextChanged="VolumeEntry_TextChanged" Text="{Binding Volume}"></Entry>
+                    <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
+                        <Entry x:Name="VolumeEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="VolumeEntry_TextChanged" Text="{Binding Volume}"></Entry>
                     </Frame>
 
                 </Grid>

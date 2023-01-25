@@ -2,24 +2,37 @@
 <ViewCell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="BotChat.App.Views.ViewCells.MessageViewCell">
+          xmlns:custom="clr-namespace:BotChat.App.Views"
+          x:Class="BotChat.App.Views.ViewCells.MessageViewCell">
+    
     <VerticalStackLayout x:Name="MainVSL">
         <Frame IsVisible="{Binding IsHuman}" BackgroundColor="{StaticResource MainDarkColor}" HorizontalOptions="End" Padding="10" Grid.Column="1">
             <HorizontalStackLayout Spacing="10">
-                <Label MaximumWidthRequest="200" TextColor="{StaticResource MainRedColor}" Text="{Binding Text}" />
+                <Label VerticalTextAlignment="Center" MaximumWidthRequest="200" TextColor="{StaticResource White}" Text="{Binding Text}" />
                 <Frame VerticalOptions="Start" Padding="0" WidthRequest="50" BorderColor="{StaticResource MainDarkColor}" HeightRequest="50" CornerRadius="25">
-                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource MainRedColor}" Text="You" />
+                    <Image HorizontalOptions="Center" VerticalOptions="Center" Source="person.svg">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                        </Image.Behaviors>
+                    </Image>
                 </Frame>
             </HorizontalStackLayout>
         </Frame>
-        <Frame IsVisible="{Binding IsAI}" BackgroundColor="{StaticResource MainDarkColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
-            <VerticalStackLayout>
+        <Frame IsVisible="{Binding IsAI}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
+            <VerticalStackLayout Spacing="15">
                 <HorizontalStackLayout Spacing="10">
                     <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainRedColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
-                        <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource MainRedColor}" Text="AI" />
+                        <Image HorizontalOptions="Center" VerticalOptions="Center" Source="smart_toy.svg">
+                            <Image.Behaviors>
+                                <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
+                            </Image.Behaviors>
+                        </Image>
                     </Frame>
-                    <Label TextColor="{StaticResource MainRedColor}" MaximumWidthRequest="200" Text="{Binding Text}" />
+                    <Label VerticalTextAlignment="Center" TextColor="{StaticResource White}" MaximumWidthRequest="200" Text="{Binding Text}" />
                 </HorizontalStackLayout>
+                
+                <Line BackgroundColor="White" />
+                
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -28,29 +41,33 @@
                     </Grid.ColumnDefinitions>
                     <ImageButton x:Name="VolumeOffBtn" Source="volume_off.svg" Clicked="VolumeOffBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0">
                         <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>
                     </ImageButton>
                     <ImageButton x:Name="VolumeUpBtn" Source="volume_up.svg" Clicked="VolumeUpBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1">
                         <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>
                     </ImageButton>
                     <ImageButton x:Name="CopyContentBtn" Source="content_copy.svg" Clicked="CopyContentBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="2">
                         <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>
                     </ImageButton>
                 </Grid>
             </VerticalStackLayout>
 
         </Frame>
-        <Frame IsVisible="{Binding IsWaiting}" BackgroundColor="{StaticResource MainDarkColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
+        <Frame IsVisible="{Binding IsWaiting}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
             <HorizontalStackLayout Spacing="10">
-                <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainRedColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
-                    <Label HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="{StaticResource MainRedColor}" Text="AI" />
+                <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource White}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
+                    <Image HorizontalOptions="Center" VerticalOptions="Center" Source="smart_toy.svg">
+                        <Image.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
+                        </Image.Behaviors>
+                    </Image>
                 </Frame>
-                <Label TextColor="{StaticResource MainRedColor}" MaximumWidthRequest="200" Text="{Binding Text}" />
+                <Label VerticalTextAlignment="Center" TextColor="{StaticResource White}" MaximumWidthRequest="200" FontSize="24" Text="{Binding Text}" />
             </HorizontalStackLayout>
         </Frame>
     </VerticalStackLayout>

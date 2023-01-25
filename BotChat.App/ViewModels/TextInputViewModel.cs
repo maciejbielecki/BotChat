@@ -9,10 +9,13 @@ using CommunityToolkit.Mvvm.Input;
 using System.Globalization;
 
 namespace BotChat.App.ViewModels
-{   
+{
     public partial class TextInputViewModel : ObservableObject
     {
         public TextInputType Type { get; set; }
+
+        [ObservableProperty]
+        bool isEntryEnabled;
 
         [ObservableProperty]
         string message;
@@ -33,6 +36,7 @@ namespace BotChat.App.ViewModels
             _speechService = speechService;
             _userService = userService;
             _speechToText = speechToText;
+            IsEntryEnabled = true;
         }
 
         [RelayCommand]
@@ -44,6 +48,8 @@ namespace BotChat.App.ViewModels
                 return;
             }
 
+            IsEntryEnabled = false;
+
             switch (Type)
             {
                 case TextInputType.Text:
@@ -52,7 +58,7 @@ namespace BotChat.App.ViewModels
                 case TextInputType.Image:
                     SendImageTypeRequest();
                     break;
-            }            
+            }
         }
 
         [RelayCommand]
@@ -126,6 +132,8 @@ namespace BotChat.App.ViewModels
             _speechService.Start(answer);
 
             OnSendMessage.Invoke(null, null);
+
+            IsEntryEnabled = true;
         }
 
         private async void SendImageTypeRequest()

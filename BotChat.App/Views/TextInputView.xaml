@@ -6,15 +6,15 @@
 
     <Frame Margin="10" HeightRequest="80" CornerRadius="20" BackgroundColor="{StaticResource MainDarkColor}" BorderColor="{StaticResource MainDarkColor}">
         <HorizontalStackLayout>
-            <ImageButton x:Name="micBtn" WidthRequest="40" Source="mic.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MicButtonClickCommand}">
+            <ImageButton x:Name="micBtn" IsEnabled="{Binding IsEntryEnabled}" WidthRequest="40" Source="mic.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MicButtonClickCommand}">
                 <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                 </ImageButton.Behaviors>
             </ImageButton>
-            <Entry x:Name="MessageEntry" PlaceholderColor="{StaticResource MainRedColor}" TextColor="{StaticResource MainRedColor}" Placeholder="Enter your message..." Text="{Binding Message}"/>
-            <ImageButton x:Name="sendBtn"  WidthRequest="40" Source="send.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SendButtonClickCommand}">
+            <Entry x:Name="MessageEntry" IsEnabled="{Binding IsEntryEnabled}" PlaceholderColor="{StaticResource White}" TextColor="{StaticResource White}" Placeholder="Enter your message..." Text="{Binding Message}"/>
+            <ImageButton x:Name="sendBtn" IsEnabled="{Binding IsEntryEnabled}" WidthRequest="40" Source="send.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SendButtonClickCommand}">
                 <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                 </ImageButton.Behaviors>
             </ImageButton>
         </HorizontalStackLayout>

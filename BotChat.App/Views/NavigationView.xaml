@@ -35,7 +35,7 @@
         <StackLayout Grid.Column="2">
             <ImageButton x:Name="settingsBtn" WidthRequest="30" Source="settings.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SettingsButtonClickCommand}">
                 <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                 </ImageButton.Behaviors>
             </ImageButton>
         </StackLayout>

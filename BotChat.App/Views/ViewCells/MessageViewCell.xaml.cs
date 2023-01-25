@@ -3,7 +3,6 @@ using ChatGPT.Models;
 
 namespace BotChat.App.Views.ViewCells;
 
-[XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class MessageViewCell : ViewCell
 {
     public static readonly BindableProperty TextProperty =
