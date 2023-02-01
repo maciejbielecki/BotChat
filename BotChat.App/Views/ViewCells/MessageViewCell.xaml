@@ -18,14 +18,11 @@
                 </Frame>
             </HorizontalStackLayout>
         </Frame>
-        <Frame IsVisible="{Binding IsAI}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
+        <Frame IsVisible="{Binding IsAI}" Margin="5" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
             <VerticalStackLayout Spacing="15">
                 <HorizontalStackLayout Spacing="10">
                     <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainRedColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
-                        <Image HorizontalOptions="Center" VerticalOptions="Center" Source="smart_toy.svg">
-                            <Image.Behaviors>
-                                <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
-                            </Image.Behaviors>
+                        <Image WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" Source="openai.png">
                         </Image>
                     </Frame>
                     <Label VerticalTextAlignment="Center" TextColor="{StaticResource White}" MaximumWidthRequest="200" Text="{Binding Text}" />
@@ -60,11 +57,8 @@
         </Frame>
         <Frame IsVisible="{Binding IsWaiting}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
             <HorizontalStackLayout Spacing="10">
-                <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource White}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
-                    <Image HorizontalOptions="Center" VerticalOptions="Center" Source="smart_toy.svg">
-                        <Image.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource MainDarkColor}" />
-                        </Image.Behaviors>
+                <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainDarkColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
+                    <Image WidthRequest="40" HeightRequest="40" Margin="5" HorizontalOptions="Center" VerticalOptions="Center" Source="openai.png">
                     </Image>
                 </Frame>
                 <Label VerticalTextAlignment="Center" TextColor="{StaticResource White}" MaximumWidthRequest="200" FontSize="24" Text="{Binding Text}" />

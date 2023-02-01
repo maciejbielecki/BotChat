@@ -20,7 +20,7 @@
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>3</ApplicationVersion>
+		<ApplicationVersion>4</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -52,6 +52,7 @@
 	  <None Remove="Resources\Images\content_copy.svg" />
 	  <None Remove="Resources\Images\image.svg" />
 	  <None Remove="Resources\Images\mic.svg" />
+	  <None Remove="Resources\Images\openai.png" />
 	  <None Remove="Resources\Images\person.svg" />
 	  <None Remove="Resources\Images\send.svg" />
 	  <None Remove="Resources\Images\settings.svg" />
@@ -76,7 +77,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\maciejbielecki\ChatGPT\ChatGPT\ChatGPT.csproj" />
+	  <ProjectReference Include="..\..\ChatGPT\ChatGPT\ChatGPT.csproj" />
 	  <ProjectReference Include="..\BotChat.Shared\BotChat.Shared.csproj" />
 	</ItemGroup>
 

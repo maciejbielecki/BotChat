@@ -6,13 +6,13 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="BotChat.App.MainPage"
              Shell.FlyoutBehavior="Disabled"
-             BackgroundColor="Black"
+             BackgroundColor="{StaticResource BrainGreyColor}"
              Shell.NavBarIsVisible="False">
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="{StaticResource MainDarkColor}" StatusBarStyle="LightContent" />
     </ContentPage.Behaviors>
     
-    <Grid BackgroundColor="Black">
+    <Grid>
         <Grid.GestureRecognizers>
             <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped"></SwipeGestureRecognizer>
         </Grid.GestureRecognizers>
@@ -23,14 +23,14 @@
         </Grid.RowDefinitions>
         <VerticalStackLayout x:Name="Navigation" Grid.Row="0">
         </VerticalStackLayout>
-        <ListView x:Name="ChatListView" SeparatorColor="Black" BackgroundColor="Black" ItemsSource="{Binding Answers}" Grid.Row="1" HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="False">
+        <ListView x:Name="ChatListView" SeparatorColor="{StaticResource BrainGreyColor}" ItemsSource="{Binding Answers}" Grid.Row="1" HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="False">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <local:MessageViewCell Text="{Binding Text}" Type="{Binding Type}" Date="{Binding Created}" IsAI="{Binding IsAI}" IsHuman="{Binding IsHuman}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <HorizontalStackLayout x:Name="TextInput" BackgroundColor="Black" Grid.Row="2"></HorizontalStackLayout>
+        <HorizontalStackLayout x:Name="TextInput" BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="2"></HorizontalStackLayout>
     </Grid>
 
 </ContentPage>

@@ -39,6 +39,11 @@ namespace BotChat.App.Services
 
         public async void Start(string text, bool isManual = false)
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                return;
+            }
+
             if (_userService.Settings.IsEnabledAIVoice || isManual)
             {
                 SpeechOptions options = new SpeechOptions()
