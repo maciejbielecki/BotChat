@@ -21,12 +21,12 @@
             <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <ImageButton x:Name="chatBtn"   Source="chat.svg" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding ChatButtonClickCommand}">
                     <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                     </ImageButton.Behaviors>
                 </ImageButton>
                 <ImageButton x:Name="imagesBtn" Source="image.svg" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding ImagesButtonClickCommand}">
                     <ImageButton.Behaviors>
-                        <toolkit:IconTintColorBehavior TintColor="{StaticResource MainRedColor}" />
+                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                     </ImageButton.Behaviors>
                 </ImageButton>
             </HorizontalStackLayout>

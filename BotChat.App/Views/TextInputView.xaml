@@ -4,19 +4,48 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="BotChat.App.Views.TextInputView">
 
-    <Frame Margin="10" HeightRequest="80" CornerRadius="20" BackgroundColor="{StaticResource MainDarkColor}" BorderColor="{StaticResource MainDarkColor}">
-        <HorizontalStackLayout>
-            <ImageButton x:Name="micBtn" IsEnabled="{Binding IsEntryEnabled}" WidthRequest="40" Source="mic.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MicButtonClickCommand}">
-                <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
-                </ImageButton.Behaviors>
-            </ImageButton>
-            <Entry x:Name="MessageEntry" IsEnabled="{Binding IsEntryEnabled}" PlaceholderColor="{StaticResource White}" TextColor="{StaticResource White}" Placeholder="Enter your message..." Text="{Binding Message}"/>
-            <ImageButton x:Name="sendBtn" IsEnabled="{Binding IsEntryEnabled}" WidthRequest="40" Source="send.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SendButtonClickCommand}">
-                <ImageButton.Behaviors>
-                    <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
-                </ImageButton.Behaviors>
-            </ImageButton>
-        </HorizontalStackLayout>
+    <Frame Margin="10" HeightRequest="{Binding ViewHeight}" CornerRadius="20" BackgroundColor="{StaticResource MainDarkColor}" BorderColor="{StaticResource MainDarkColor}">
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <ImageButton x:Name="micBtn" IsVisible="{Binding IsVisibleMicrophone}" IsEnabled="{Binding IsEntryEnabled}" WidthRequest="40" Source="mic.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MicButtonClickCommand}">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
+                <Entry x:Name="MessageEntry" IsVisible="{Binding IsVisibleEntry}" IsEnabled="{Binding IsEntryEnabled}" PlaceholderColor="{StaticResource White}" TextColor="{StaticResource White}" Placeholder="Enter your message..." Text="{Binding Message}"/>
+                <ImageButton x:Name="sendBtn" IsEnabled="{Binding IsSendButtonEnabled}" WidthRequest="{Binding EntryWidth}" Source="send.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding SendButtonClickCommand}">
+                    <ImageButton.Behaviors>
+                        <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
+                    </ImageButton.Behaviors>
+                </ImageButton>
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout>
+                <HorizontalStackLayout IsVisible="{Binding IsVisibleMainImage}">
+                    <ImageButton  WidthRequest="40" Source="image.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MainImageClickCommand}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Label VerticalOptions="Center" Text="{Binding MainImageName}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout IsVisible="{Binding IsVisibleMaskImage}" >
+                    <ImageButton WidthRequest="40" Source="image.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MaskImageClickCommand}">
+                        <ImageButton.Behaviors>
+                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
+                        </ImageButton.Behaviors>
+                    </ImageButton>
+                    <Label VerticalOptions="Center" Text="{Binding MaskImageName}" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout IsVisible="{Binding IsVisibleNumberCount}">
+                    <Label VerticalOptions="Center" Text="How many images generate (1-5)?" />
+                    <Frame HorizontalOptions="End" Padding="0" VerticalOptions="Center">
+                        <Entry HorizontalTextAlignment="Center" TextColor="Black" Keyboard="Numeric" Text="{Binding ImageNumber}" />
+                    </Frame>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+            
+        </VerticalStackLayout>
+      
     </Frame>
 </ContentView>

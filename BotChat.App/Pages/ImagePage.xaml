@@ -15,15 +15,44 @@
         </Grid.GestureRecognizers>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
         </Grid.RowDefinitions>
-        <VerticalStackLayout x:Name="Navigation" BackgroundColor="Green" Grid.Row="0">
+        <VerticalStackLayout x:Name="Navigation" BackgroundColor="{StaticResource MainDarkColor}" Grid.Row="0">
         </VerticalStackLayout>
-        <VerticalStackLayout BackgroundColor="Black" Grid.Row="1">
-            <Label Text="ImagePage" />
+        <VerticalStackLayout BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="1">
+            <Grid VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0">
+                    <Button Text="Generation" TextColor="Black" FontAttributes="Bold" HorizontalOptions="End" Clicked="GenerationButtonClick" />
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Button Text="Edits" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" Clicked="EditsButtonClick" />
+                </StackLayout>
+                <StackLayout Grid.Column="2">
+                    <Button Text="Variations" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start" Clicked="VariationsButtonClick" />
+                </StackLayout>
+            </Grid>
         </VerticalStackLayout>
-        <HorizontalStackLayout x:Name="TextInput" BackgroundColor="Blue" Grid.Row="2"></HorizontalStackLayout>
+
+        <ListView x:Name="ChatListView" SeparatorColor="{StaticResource BrainGreyColor}" ItemsSource="{Binding Answers}" Grid.Row="2" HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="False">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame WidthRequest="300" BackgroundColor="{StaticResource MainRedColor}">
+                            <Image HorizontalOptions="Center" Source="{Binding Text}" />
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <HorizontalStackLayout x:Name="TextInput" VerticalOptions="End" BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="3"></HorizontalStackLayout>
     </Grid>
 
 </ContentPage>

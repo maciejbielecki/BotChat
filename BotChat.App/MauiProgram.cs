@@ -1,6 +1,7 @@
 ﻿using BotChat.App.Extensions;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Plugin.MauiMTAdmob;
 
 namespace BotChat.App
 {
@@ -11,6 +12,7 @@ namespace BotChat.App
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiMTAdmob()
                 .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {

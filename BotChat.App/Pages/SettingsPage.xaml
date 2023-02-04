@@ -22,7 +22,7 @@
         </VerticalStackLayout>
         <ScrollView Grid.Row="1" Padding="10">
             <VerticalStackLayout>
-                <Label FontSize="24" HorizontalOptions="Center" Text="Settings" />
+                <Label FontSize="24" TextColor="White" HorizontalOptions="Center" Text="Settings" />
                 <Grid RowSpacing="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -37,29 +37,29 @@
                         <RowDefinition Height="50"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Text="Enable AIVoice" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0"></Label>
-                    <Switch x:Name="EnabledAIVoice" ThumbColor="{StaticResource MainRedColor}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" Toggled="EnabledAIVoice_Toggled" IsToggled="{Binding IsEnabledAIVoice}"></Switch>
+                    <Switch x:Name="EnabledAIVoice" ThumbColor="{StaticResource White}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" Toggled="EnabledAIVoice_Toggled" IsToggled="{Binding IsEnabledAIVoice}"></Switch>
 
                     <Label Text="Autosend voice message" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="0"></Label>
-                    <Switch x:Name="EnabledAutosend" ThumbColor="{StaticResource MainRedColor}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Toggled="EnabledAutosend_Toggled"  IsToggled="{Binding IsEnabledAutosend}"></Switch>
+                    <Switch x:Name="EnabledAutosend" ThumbColor="{StaticResource White}" OnColor="{StaticResource MainDarkColor}" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Toggled="EnabledAutosend_Toggled"  IsToggled="{Binding IsEnabledAutosend}"></Switch>
 
                     <Label x:Name="LanguageText" TextColor="{StaticResource White}" Text="Language" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="0"></Label>
                     <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="150" HeightRequest="50">
-                        <Picker x:Name="LanguagePicker" TextColor="{StaticResource MainRedColor}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="LanguagePicker_SelectedIndexChanged" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"></Picker>
+                        <Picker x:Name="LanguagePicker" TextColor="{StaticResource White}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="LanguagePicker_SelectedIndexChanged" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}"></Picker>
                     </Frame>
 
                     <Label x:Name="ModelText" TextColor="{StaticResource White}" Text="ChatGPT AI Model" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="0"></Label>
                     <Frame Grid.Row="3" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="150" HeightRequest="50">
-                        <Picker x:Name="ModelPicker" TextColor="{StaticResource MainRedColor}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
+                        <Picker x:Name="ModelPicker" TextColor="{StaticResource White}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
                     </Frame>
 
                     <Label Text="Pitch (0-2)" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="0"></Label>
                     <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
-                        <Entry x:Name="PitchEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="PitchEntry_TextChanged" Text="{Binding Pitch}"></Entry>
+                        <Entry x:Name="PitchEntry" TextColor="{StaticResource White}" HorizontalTextAlignment="Center" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="PitchEntry_TextChanged" Text="{Binding Pitch}"></Entry>
                     </Frame>
 
                     <Label Text="Volume (0-2)" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="0"></Label>
                     <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
-                        <Entry x:Name="VolumeEntry" TextColor="{StaticResource MainRedColor}" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="VolumeEntry_TextChanged" Text="{Binding Volume}"></Entry>
+                        <Entry x:Name="VolumeEntry" TextColor="{StaticResource White}" HorizontalTextAlignment="Center" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="VolumeEntry_TextChanged" Text="{Binding Volume}"></Entry>
                     </Frame>
 
                 </Grid>

@@ -3,10 +3,11 @@
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
           xmlns:custom="clr-namespace:BotChat.App.Views"
+          IsEnabled="False"
           x:Class="BotChat.App.Views.ViewCells.MessageViewCell">
     
     <VerticalStackLayout x:Name="MainVSL">
-        <Frame IsVisible="{Binding IsHuman}" BackgroundColor="{StaticResource MainDarkColor}" HorizontalOptions="End" Padding="10" Grid.Column="1">
+        <Frame IsVisible="{Binding IsHuman}" BorderColor="{StaticResource MainDarkColor}" BackgroundColor="{StaticResource MainDarkColor}" HorizontalOptions="End" Padding="10" Grid.Column="1">
             <HorizontalStackLayout Spacing="10">
                 <Label VerticalTextAlignment="Center" MaximumWidthRequest="200" TextColor="{StaticResource White}" Text="{Binding Text}" />
                 <Frame VerticalOptions="Start" Padding="0" WidthRequest="50" BorderColor="{StaticResource MainDarkColor}" HeightRequest="50" CornerRadius="25">
@@ -18,7 +19,7 @@
                 </Frame>
             </HorizontalStackLayout>
         </Frame>
-        <Frame IsVisible="{Binding IsAI}" Margin="5" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
+        <Frame IsVisible="{Binding IsAI}" Margin="5" BorderColor="{StaticResource MainRedColor}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
             <VerticalStackLayout Spacing="15">
                 <HorizontalStackLayout Spacing="10">
                     <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainRedColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
@@ -55,7 +56,7 @@
             </VerticalStackLayout>
 
         </Frame>
-        <Frame IsVisible="{Binding IsWaiting}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
+        <Frame IsVisible="{Binding IsWaiting}" BorderColor="{StaticResource MainRedColor}" BackgroundColor="{StaticResource MainRedColor}" HorizontalOptions="Start" Padding="10" Grid.Column="0">
             <HorizontalStackLayout Spacing="10">
                 <Frame Padding="0" VerticalOptions="Start" BorderColor="{StaticResource MainDarkColor}" WidthRequest="50" HeightRequest="50" CornerRadius="25">
                     <Image WidthRequest="40" HeightRequest="40" Margin="5" HorizontalOptions="Center" VerticalOptions="Center" Source="openai.png">

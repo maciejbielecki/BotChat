@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="true"
      inkscape:zoom="64"
-     inkscape:cx="20.460937"
-     inkscape:cy="11.71875"
+     inkscape:cx="17.117188"
+     inkscape:cy="17.984375"
      inkscape:window-width="2560"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -204,7 +204,7 @@
          id="path1916" />
       <path
          style="fill:#ffffff;stroke:#cb4052;stroke-opacity:1"
-         d="m 16.142898,12.506952 h 8.220116"
+         d="m 16.196147,11.574993 h 8.220116"
          id="path1920" />
       <path
          style="fill:#193b59;fill-opacity:1;stroke:#cb4052;stroke-width:1.04577;stroke-opacity:1"
@@ -213,23 +213,16 @@
       <circle
          style="fill:#193b59;fill-opacity:1;stroke:#cb4052;stroke-opacity:1"
          id="path1924-2-9"
-         cx="25.954002"
-         cy="19.754795"
+         cx="22.572702"
+         cy="26.689667"
          r="2.9389126" />
-      <rect
-         style="fill:#193b59;fill-opacity:1;stroke:#cb4052;stroke-width:1.60417;stroke-opacity:1"
-         id="rect9952"
-         width="4.7132201"
-         height="4.9309354"
-         x="20.14241"
-         y="24.243322" />
       <rect
          style="fill:#193b59;fill-opacity:1;stroke:#cb4052;stroke-width:1.60417;stroke-opacity:1"
          id="rect9952-8"
          width="4.7132201"
          height="4.9309354"
-         x="23.755941"
-         y="10.162148" />
+         x="23.942312"
+         y="9.1205473" />
       <path
          sodipodi:type="star"
          style="fill:#193b59;fill-opacity:1;stroke:#cb4052;stroke-width:0.56882;stroke-dasharray:none;stroke-opacity:1"
@@ -247,6 +240,14 @@
          d="m 21.705959,7.3125 -1.584157,0.9146133 -1.584156,0.914613 0,-1.8292264 0,-1.8292262 1.584156,0.9146131 z"
          transform="matrix(1.6778365,0,0,1.6073779,-10.658835,-5.9652681)"
          inkscape:transform-center-x="-0.51995602" />
+      <rect
+         style="fill:#193b59;fill-opacity:1;stroke:#cb4052;stroke-width:1.60451;stroke-opacity:1"
+         id="rect9952-8-4"
+         width="4.7833109"
+         height="4.8607388"
+         x="-34.422531"
+         y="2.1377578"
+         transform="matrix(-0.69674542,-0.71731849,0.69674542,-0.71731849,0,0)" />
     </g>
   </g>
 </svg>

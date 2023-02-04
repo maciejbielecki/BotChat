@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotChat.Api", "BotChat.Api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotChat.Shared", "BotChat.Shared\BotChat.Shared.csproj", "{7B104817-2626-4021-B88B-A39A420233C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGPT", "..\ChatGPT\ChatGPT\ChatGPT.csproj", "{6AB841BE-855A-4893-8F53-8B063F897218}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGPT", "..\ChatGPT\ChatGPT\ChatGPT.csproj", "{3B273813-B4A1-4459-B88D-A1FD30731C2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{7B104817-2626-4021-B88B-A39A420233C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B104817-2626-4021-B88B-A39A420233C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B104817-2626-4021-B88B-A39A420233C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6AB841BE-855A-4893-8F53-8B063F897218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AB841BE-855A-4893-8F53-8B063F897218}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AB841BE-855A-4893-8F53-8B063F897218}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AB841BE-855A-4893-8F53-8B063F897218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B273813-B4A1-4459-B88D-A1FD30731C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B273813-B4A1-4459-B88D-A1FD30731C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B273813-B4A1-4459-B88D-A1FD30731C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B273813-B4A1-4459-B88D-A1FD30731C2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

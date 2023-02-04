@@ -25,12 +25,12 @@ namespace BotChat.App.ViewModels
             _textInputViewModel.OnSendMessage += OnSendMessage;
 
             _chatGPTService = chatGPTService;
-            Answers = new(_chatGPTService.Conversations.First(c => c.Type == TextInputType.Text).Answers);
+            Answers = new(_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers);
         }
 
         public async void OnSendMessage(object o, EventArgs e)
         {
-            Answers = new(_chatGPTService.Conversations.First(c => c.Type == TextInputType.Text).Answers);
+            Answers = new(_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers);
             ChatListView.ScrollTo(Answers.LastOrDefault(), ScrollToPosition.End, true);
         }
 

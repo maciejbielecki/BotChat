@@ -25,6 +25,12 @@ namespace BotChat.App
             });
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((TextInput.Children[0] as TextInputView).BindingContext as TextInputViewModel).SetTextType();
+        }
+
         private async void SwipeGestureRecognizer_Swiped(object sender, SwipedEventArgs e)
         {
             //await Shell.Current.GoToAsync(nameof(ImagePage));

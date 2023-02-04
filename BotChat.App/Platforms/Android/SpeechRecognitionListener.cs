@@ -47,7 +47,7 @@ namespace BotChat.App.Platforms
                 return;
             }
 
-            action?.Invoke(matches.First());
+            action?.Invoke(matches.FirstOrDefault());
         }
     }
 

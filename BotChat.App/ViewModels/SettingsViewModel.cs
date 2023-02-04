@@ -47,7 +47,7 @@ namespace BotChat.App.ViewModels
             var test = await _speechService.GetLocales();
             Models = new(_chatGPTService.Models.Select(d => d.Id).OrderBy(d => d));
             Languages = new((await _speechService.GetLocales()).Select(l => l.Name).OrderBy(l => l));
-            SelectedLanguage = string.IsNullOrEmpty(_userService.Settings.Language) ? Languages.First() : _userService.Settings.Language;
+            SelectedLanguage = string.IsNullOrEmpty(_userService.Settings.Language) ? Languages.FirstOrDefault() : _userService.Settings.Language;
             SelectedModel = string.IsNullOrEmpty(_userService.Settings.ChatGPTAIModel) ? "text-davinci-003" : _userService.Settings.ChatGPTAIModel;
             IsEnabledAIVoice = _userService.Settings.IsEnabledAIVoice;
             IsEnabledAutosend = _userService.Settings.IsEnabledAutosend;
@@ -89,12 +89,12 @@ namespace BotChat.App.ViewModels
             var valueText = string.IsNullOrEmpty(entry.Text) ? "0" : entry.Text.Last() == '.' ? $"{entry.Text}0".Replace(".", ",") : entry.Text.Replace(".", ",");
             var value = double.Parse(valueText);
 
-            if (value > 2) Volume = "2";
+            if (value > 1) Volume = "1";
             if (value < 0) Volume = "0";
 
-            value = value >= 0 && value <= 2
+            value = value >= 0 && value <= 1
                 ? value
-                : value < 0 ? 0 : 2;
+                : value < 0 ? 0 : 1;
 
             _userService.SetSpeechOptionsVolume(value);
         }

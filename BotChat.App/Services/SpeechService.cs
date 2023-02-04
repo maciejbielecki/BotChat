@@ -1,4 +1,5 @@
 ﻿using BotChat.Shared;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BotChat.App.Services
 {
@@ -13,9 +14,6 @@ namespace BotChat.App.Services
     public class SpeechService : ISpeechService
     {
         private readonly IUserService _userService;
-
-        private Locale _locale;
-
         private CancellationTokenSource cts;
 
         public SpeechService(IUserService userService)
@@ -25,11 +23,25 @@ namespace BotChat.App.Services
 
         public async Task<Locale> GetLocale(string language)
         {
-            return (await TextToSpeech.Default.GetLocalesAsync()).FirstOrDefault(l => l.Name == language);
+            try
+            {
+                return (await TextToSpeech.Default.GetLocalesAsync()).FirstOrDefault(l => l.Name == language);
+            }
+            catch
+            {
+                return null;
+            }
         }
         public async Task<IEnumerable<Locale>> GetLocales()
         {
-            return await TextToSpeech.Default.GetLocalesAsync();
+            try
+            {
+                return await TextToSpeech.Default.GetLocalesAsync();
+            }
+            catch
+            {
+                return new List<Locale>();
+            }
         }
 
         public string RecordingToText()
@@ -54,13 +66,27 @@ namespace BotChat.App.Services
                 };
                 cts = new();
 
-                await TextToSpeech.Default.SpeakAsync(text, options, cts.Token);
+                try
+                {
+                    await TextToSpeech.Default.SpeakAsync(text, options, cts.Token);
+                }
+                catch
+                {
+                    System.Diagnostics.Debug.WriteLine("TextToSpeech.Default.SpeakAsync error");
+                }
             }
         }
 
         public void Stop()
         {
-            cts.Cancel();
+            try
+            {
+                cts.Cancel();
+            }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("CancellationTokenSource.Cancel() error");
+            }
         }
     }
 }

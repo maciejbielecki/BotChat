@@ -65,7 +65,7 @@ public partial class MessageViewCell : ViewCell
     {
         var imageButton = (ImageButton)sender;
         var vsl = imageButton.Parent.Parent as VerticalStackLayout;
-        var hsl = vsl.Children.First() as HorizontalStackLayout;
+        var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
         var text = (hsl.Last() as Label).Text;
         (Shell.Current.CurrentPage.BindingContext as MainViewModel).VolumeUp(text);
     }
@@ -74,7 +74,7 @@ public partial class MessageViewCell : ViewCell
     {
         var imageButton = (ImageButton)sender;
         var vsl = imageButton.Parent.Parent as VerticalStackLayout;
-        var hsl = vsl.Children.First() as HorizontalStackLayout;
+        var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
         var text = (hsl.Last() as Label).Text;
         (Shell.Current.CurrentPage.BindingContext as MainViewModel).CopyContent(text);
     }
