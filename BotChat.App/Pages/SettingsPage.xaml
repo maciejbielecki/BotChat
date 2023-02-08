@@ -52,13 +52,13 @@
                         <Picker x:Name="ModelPicker" TextColor="{StaticResource White}" WidthRequest="150" HorizontalTextAlignment="Center" SelectedIndexChanged="ModelPicker_SelectedIndexChanged" ItemsSource="{Binding Models}" SelectedItem="{Binding SelectedModel}"></Picker>
                     </Frame>
 
-                    <Label Text="Pitch (0-2)" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="0"></Label>
-                    <Frame Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
+                    <Label IsVisible="false" Text="Pitch (0-2)" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="0"></Label>
+                    <Frame IsVisible="false" Grid.Row="4" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
                         <Entry x:Name="PitchEntry" TextColor="{StaticResource White}" HorizontalTextAlignment="Center" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="PitchEntry_TextChanged" Text="{Binding Pitch}"></Entry>
                     </Frame>
 
-                    <Label Text="Volume (0-2)" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="0"></Label>
-                    <Frame Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
+                    <Label IsVisible="false" Text="Volume (0-2)" TextColor="{StaticResource White}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="0"></Label>
+                    <Frame IsVisible="false" Grid.Row="5" Grid.Column="1" BackgroundColor="{StaticResource MainDarkColor}" Padding="0" WidthRequest="50" HeightRequest="50">
                         <Entry x:Name="VolumeEntry" TextColor="{StaticResource White}" HorizontalTextAlignment="Center" Keyboard="Numeric" WidthRequest="50" HorizontalOptions="Center" TextChanged="VolumeEntry_TextChanged" Text="{Binding Volume}"></Entry>
                     </Frame>
 

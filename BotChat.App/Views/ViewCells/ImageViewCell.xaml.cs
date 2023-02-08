@@ -1,9 +1,10 @@
 using BotChat.App.ViewModels;
 using ChatGPT.Models;
+using Java.Net;
 
 namespace BotChat.App.Views.ViewCells;
 
-public partial class MessageViewCell : ViewCell
+public partial class ImageViewCell : ViewCell
 {
     public static readonly BindableProperty TextProperty =
    BindableProperty.Create("Text", typeof(string), typeof(MessageViewCell), "");
@@ -50,7 +51,7 @@ public partial class MessageViewCell : ViewCell
         set { SetValue(DateProperty, value); }
     }
 
-    public MessageViewCell()
+    public ImageViewCell()
     {
         InitializeComponent();
         MainVSL.Padding = new Thickness(5, 15, 0, 15);
@@ -70,21 +71,59 @@ public partial class MessageViewCell : ViewCell
         (Shell.Current.CurrentPage.BindingContext as MainViewModel).VolumeUp(text);
     }
 
-    private void CopyContentBtn_Clicked(object sender, EventArgs e)
-    {
-        var imageButton = (ImageButton)sender;
-        var vsl = imageButton.Parent.Parent as VerticalStackLayout;
-        var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
-        var text = (hsl.Last() as Label).Text;
-        (Shell.Current.CurrentPage.BindingContext as MainViewModel).CopyContent(text);
-    }
-
     private async void ShareContentBtn_Clicked(object sender, EventArgs e)
     {
         var imageButton = (ImageButton)sender;
         var vsl = imageButton.Parent.Parent as VerticalStackLayout;
         var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
-        var text = (hsl.Last() as Label).Text;
-        await Share.RequestAsync(text);
+        var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
+
+        using (HttpClient client = new HttpClient())
+        {
+            using (var response = await client.GetAsync(url))
+            {
+                using (Stream stream = await response.Content.ReadAsStreamAsync())
+                {
+                    string path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
+                    string fileName = $"generated_image_{Guid.NewGuid().ToString("N")}.png";
+                    string filePath = Path.Combine(path, fileName);
+                    using (FileStream outputFileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        stream.CopyTo(outputFileStream);
+                        var rof = new ShareFile(filePath);
+                        await Share.RequestAsync(new ShareFileRequest() { File = rof, Title = fileName });
+                    }
+                }
+            }
+        }
+
+    }
+
+    private async void CopyContentBtn_Clicked(object sender, EventArgs e)
+    {
+        var imageButton = (ImageButton)sender;
+        var vsl = imageButton.Parent.Parent as VerticalStackLayout;
+        var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
+        var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
+
+        if (await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Would you like todownload this image?", "Yes", "No"))
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                using (var response = await client.GetAsync(url))
+                {
+                    using (Stream stream = await response.Content.ReadAsStreamAsync())
+                    {
+                        string path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
+                        string filePath = System.IO.Path.Combine(path, $"generated_image_{Guid.NewGuid().ToString("N")}.png");
+                        using (FileStream outputFileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            stream.CopyTo(outputFileStream);
+                            await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Image saved in downloads folder", "Ok");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -37,8 +37,8 @@
                     </ImageButton>
                     <Label VerticalOptions="Center" Text="{Binding MaskImageName}" />
                 </HorizontalStackLayout>
-                <HorizontalStackLayout IsVisible="{Binding IsVisibleNumberCount}">
-                    <Label VerticalOptions="Center" Text="How many images generate (1-5)?" />
+                <HorizontalStackLayout HorizontalOptions="Fill" IsVisible="{Binding IsVisibleNumberCount}">
+                    <Label VerticalOptions="Center" Text="How many images generate (1-5)?  " />
                     <Frame HorizontalOptions="End" Padding="0" VerticalOptions="Center">
                         <Entry HorizontalTextAlignment="Center" TextColor="Black" Keyboard="Numeric" Text="{Binding ImageNumber}" />
                     </Frame>

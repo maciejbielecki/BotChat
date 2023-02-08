@@ -91,13 +91,15 @@ namespace BotChat.App.ViewModels
             MainImageName = "Main image . . .";
             MaskImageName = "Mask image . . .";
             ImageNumber = 1;
-            CrossMauiMTAdmob.Current.LoadRewarded("ca-app-pub-1642689140493347/1966780640");
+            //CrossMauiMTAdmob.Current.LoadRewarded("ca-app-pub-1642689140493347/1966780640");
+            CrossMauiMTAdmob.Current.LoadInterstitial("ca-app-pub-1642689140493347/9988471399");
+            CrossMauiMTAdmob.Current.OnInterstitialClosed += (s, e) => { CrossMauiMTAdmob.Current.LoadInterstitial("ca-app-pub-1642689140493347/9988471399"); };
             //CrossMauiMTAdmob.Current.LoadRewarded("ca-app-pub-3940256099942544/5224354917");
 
 
-    }
+        }
 
-    [RelayCommand]
+        [RelayCommand]
         async void SendButtonClick()
         {
             if (string.IsNullOrEmpty(Message))
@@ -242,26 +244,37 @@ namespace BotChat.App.ViewModels
 
             OnSendMessage.Invoke(null, null);
 
-            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Add(new() { Type = ChatType.Waiting, Text = "•  •  •", Created = DateTime.Now });            
+            ChatAnswer waitingAnswer = new() { Type = ChatType.Waiting, Text = "•  •  •", Created = DateTime.Now };
+
+            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Add(waitingAnswer);
 
             Message = string.Empty;
             OnSendMessage.Invoke(null, null);
 
-            var result = await _chatGPTService.Completions(new(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text))), _userService.Settings.ChatGPTAIModel);
-            var answer = result.Choices.FirstOrDefault().Text.Replace(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text)), string.Empty).Trim();
-            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.RemoveAll(a => a.IsWaiting == true);
-            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Add(new() { Type = ChatType.AI, Text = answer, Created = DateTime.Now });
-
-            var count = _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(a => a.IsAI == true).Count();
+            var count = _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(a => a.IsAI == true || a.IsWaiting).Count();
             if (count % 3 == 0)
             {
-                CrossMauiMTAdmob.Current.ShowRewarded();
-                CrossMauiMTAdmob.Current.OnUserEarnedReward += (s, e) => { _speechService.Start(answer); };
+                try
+                {
+                    MainThread.InvokeOnMainThreadAsync(() =>
+                    {
+                        CrossMauiMTAdmob.Current.ShowInterstitial();
+                        //CrossMauiMTAdmob.Current.ShowRewarded();
+                    });
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
-            else
-            {
-                _speechService.Start(answer);
-            }
+
+            var result = await _chatGPTService.Completions(new(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text))), _userService.Settings.ChatGPTAIModel);
+            var answer = result.Choices.FirstOrDefault().Text.Replace(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text)), string.Empty).Trim();
+
+            waitingAnswer.Type = ChatType.AI;
+            waitingAnswer.Text = answer;
+
+            _speechService.Start(answer);
 
             OnSendMessage.Invoke(null, null);
 
@@ -271,11 +284,14 @@ namespace BotChat.App.ViewModels
 
         private async void SendImageTypeRequest()
         {
-            //_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Add(new() { Type = ChatType.Human, Text = Message, Created = DateTime.Now });
+            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Add(new() { Type = ChatType.Human, Text = Message, Created = DateTime.Now });
 
-            //OnSendMessage.Invoke(null, null);
+            OnSendImage.Invoke(null, null);
 
-            //_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Add(new() { Type = ChatType.Waiting, Text = "•  •  •", Created = DateTime.Now });
+            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Add(new() { Type = ChatType.Waiting, Text = "•  •  •", Created = DateTime.Now });
+
+            OnSendImage.Invoke(null, null);
+
 
             GptImageGenerationResponse result = null;
 
@@ -292,6 +308,8 @@ namespace BotChat.App.ViewModels
                     break;
             }
 
+            _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Remove(_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.FirstOrDefault(a => a.IsWaiting == true));
+
             if (result.Data.Select(d => d.Url).Any())
             {
                 foreach (var img in result.Data.Select(d => d.Url).ToList())
@@ -300,13 +318,14 @@ namespace BotChat.App.ViewModels
                 }
             }
 
+            OnSendImage.Invoke(null, null);
+
             Message = string.Empty;
             MainImageName = string.Empty;
             MaskImageName = string.Empty;
             _mainImage = null;
             _maskImage = null;
-
-            OnSendImage.Invoke(null, null);
+            SetImageRequestType(ImageRequestType.Generation);
         }
 
         public void SetTextType()

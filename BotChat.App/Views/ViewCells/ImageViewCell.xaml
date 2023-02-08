@@ -3,7 +3,7 @@
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
           xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
           xmlns:custom="clr-namespace:BotChat.App.Views"
-          x:Class="BotChat.App.Views.ViewCells.MessageViewCell">
+          x:Class="BotChat.App.Views.ViewCells.ImageViewCell">
     
     <VerticalStackLayout x:Name="MainVSL">
         <Frame IsVisible="{Binding IsHuman}" BorderColor="{StaticResource MainDarkColor}" BackgroundColor="{StaticResource MainDarkColor}" HorizontalOptions="End" Padding="10" Grid.Column="1">
@@ -25,7 +25,7 @@
                         <Image WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" Source="openai.png">
                         </Image>
                     </Frame>
-                    <Label VerticalTextAlignment="Center" TextColor="{StaticResource White}" MaximumWidthRequest="200" Text="{Binding Text}" />
+                    <Image VerticalOptions="Center" HorizontalOptions="Center" MaximumWidthRequest="200" Source="{Binding Text}" />
                 </HorizontalStackLayout>
                 
                 <Line BackgroundColor="White" />
@@ -38,22 +38,12 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <ImageButton x:Name="VolumeUpBtn" Source="volume_up.svg" Clicked="VolumeUpBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1">
+                    <ImageButton x:Name="ShareContentBtn" Source="share.svg" Clicked="ShareContentBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3">
                         <ImageButton.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <ImageButton x:Name="VolumeOffBtn" Source="volume_off.svg" Clicked="VolumeOffBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2">
-                        <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
-                        </ImageButton.Behaviors>
-                    </ImageButton>                    
-                    <ImageButton x:Name="ShareContentBtn" Source="share.svg" Clicked="ShareContentBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="3">
-                        <ImageButton.Behaviors>
-                            <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
-                        </ImageButton.Behaviors>
-                    </ImageButton>
-                    <ImageButton x:Name="CopyContentBtn" Source="content_copy.svg" Clicked="CopyContentBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="4">
+                    <ImageButton x:Name="CopyContentBtn" Source="content_copy.svg" Clicked="CopyContentBtn_Clicked" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="4">
                         <ImageButton.Behaviors>
                             <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>

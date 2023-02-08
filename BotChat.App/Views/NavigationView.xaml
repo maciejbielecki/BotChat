@@ -17,7 +17,7 @@
                 </ImageButton.Behaviors>
             </ImageButton>
         </StackLayout>
-        <StackLayout IsVisible="false" Padding="10" Grid.Column="1">
+        <StackLayout IsVisible="true" Padding="10" Grid.Column="1">
             <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                 <ImageButton x:Name="chatBtn"   Source="chat.svg" HeightRequest="30" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding ChatButtonClickCommand}">
                     <ImageButton.Behaviors>

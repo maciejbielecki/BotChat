@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BotChat.App.Views.ViewCells"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="BotChat.App.ImagePage"
              BackgroundColor="{StaticResource BrainGreyColor}"
@@ -15,13 +16,13 @@
         </Grid.GestureRecognizers>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="80"></RowDefinition>
+            <!--<RowDefinition Height="80"></RowDefinition>-->
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="250"></RowDefinition>
         </Grid.RowDefinitions>
         <VerticalStackLayout x:Name="Navigation" BackgroundColor="{StaticResource MainDarkColor}" Grid.Row="0">
         </VerticalStackLayout>
-        <VerticalStackLayout BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="1">
+        <!--<VerticalStackLayout  IsVisible="false" BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="1">
             <Grid VerticalOptions="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -38,21 +39,17 @@
                     <Button Text="Variations" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Start" Clicked="VariationsButtonClick" />
                 </StackLayout>
             </Grid>
-        </VerticalStackLayout>
+        </VerticalStackLayout>-->
 
-        <ListView x:Name="ChatListView" SeparatorColor="{StaticResource BrainGreyColor}" ItemsSource="{Binding Answers}" Grid.Row="2" HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="False">
+        <ListView x:Name="ChatListView" SeparatorColor="{StaticResource BrainGreyColor}" ItemsSource="{Binding Answers}" Grid.Row="1" HasUnevenRows="True" SelectionMode="None" IsPullToRefreshEnabled="False">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Frame WidthRequest="300" BackgroundColor="{StaticResource MainRedColor}">
-                            <Image HorizontalOptions="Center" Source="{Binding Text}" />
-                        </Frame>
-                    </ViewCell>
+                    <local:ImageViewCell Text="{Binding Text}" Type="{Binding Type}" Date="{Binding Created}" IsAI="{Binding IsAI}" IsHuman="{Binding IsHuman}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <HorizontalStackLayout x:Name="TextInput" VerticalOptions="End" BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="3"></HorizontalStackLayout>
+        <HorizontalStackLayout x:Name="TextInput" VerticalOptions="End" BackgroundColor="{StaticResource BrainGreyColor}" Grid.Row="2"></HorizontalStackLayout>
     </Grid>
 
 </ContentPage>
