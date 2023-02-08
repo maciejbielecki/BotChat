@@ -1,6 +1,5 @@
 using BotChat.App.ViewModels;
 using ChatGPT.Models;
-using Java.Net;
 
 namespace BotChat.App.Views.ViewCells;
 
@@ -77,7 +76,7 @@ public partial class ImageViewCell : ViewCell
         var vsl = imageButton.Parent.Parent as VerticalStackLayout;
         var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
         var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
-
+#if ANDROID
         using (HttpClient client = new HttpClient())
         {
             using (var response = await client.GetAsync(url))
@@ -96,7 +95,7 @@ public partial class ImageViewCell : ViewCell
                 }
             }
         }
-
+#endif
     }
 
     private async void CopyContentBtn_Clicked(object sender, EventArgs e)
@@ -106,6 +105,7 @@ public partial class ImageViewCell : ViewCell
         var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
         var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
 
+#if ANDROID
         if (await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Would you like todownload this image?", "Yes", "No"))
         {
             using (HttpClient client = new HttpClient())
@@ -125,5 +125,6 @@ public partial class ImageViewCell : ViewCell
                 }
             }
         }
+#endif
     }
 }
