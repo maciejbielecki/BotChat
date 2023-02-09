@@ -1,5 +1,6 @@
 ﻿using BotChat.App.Extensions;
 using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using Plugin.MauiMTAdmob;
 
 namespace BotChat.App
