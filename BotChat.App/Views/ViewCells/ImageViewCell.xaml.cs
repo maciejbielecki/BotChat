@@ -106,7 +106,7 @@ public partial class ImageViewCell : ViewCell
         var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
 
 #if ANDROID
-        if (await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Would you like todownload this image?", "Yes", "No"))
+        if (await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Would you like to download this image?", "Yes", "No"))
         {
             using (HttpClient client = new HttpClient())
             {

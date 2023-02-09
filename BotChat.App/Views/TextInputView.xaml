@@ -27,7 +27,7 @@
                             <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <Label VerticalOptions="Center" Text="{Binding MainImageName}" />
+                    <Label TextColor="{StaticResource White}" VerticalOptions="Center" Text="{Binding MainImageName}" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout IsVisible="{Binding IsVisibleMaskImage}" >
                     <ImageButton WidthRequest="40" Source="image.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding MaskImageClickCommand}">
@@ -35,10 +35,10 @@
                             <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                         </ImageButton.Behaviors>
                     </ImageButton>
-                    <Label VerticalOptions="Center" Text="{Binding MaskImageName}" />
+                    <Label TextColor="{StaticResource White}" VerticalOptions="Center" Text="{Binding MaskImageName}" />
                 </HorizontalStackLayout>
                 <HorizontalStackLayout HorizontalOptions="Fill" IsVisible="{Binding IsVisibleNumberCount}">
-                    <Label VerticalOptions="Center" Text="How many images generate (1-5)?  " />
+                    <Label TextColor="{StaticResource White}" VerticalOptions="Center" Text="How many images generate (1-5)?  " />
                     <Frame HorizontalOptions="End" Padding="0" VerticalOptions="Center">
                         <Entry HorizontalTextAlignment="Center" TextColor="Black" Keyboard="Numeric" Text="{Binding ImageNumber}" />
                     </Frame>

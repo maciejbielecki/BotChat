@@ -292,6 +292,22 @@ namespace BotChat.App.ViewModels
 
             OnSendImage.Invoke(null, null);
 
+            var count = _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Where(a => a.IsAI == true || a.IsWaiting).Count();
+            if (count % 3 == 0)
+            {
+                try
+                {
+                    MainThread.InvokeOnMainThreadAsync(() =>
+                    {
+                        CrossMauiMTAdmob.Current.ShowInterstitial();
+                        //CrossMauiMTAdmob.Current.ShowRewarded();
+                    });
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
 
             GptImageGenerationResponse result = null;
 
