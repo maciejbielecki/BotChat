@@ -6,7 +6,7 @@ namespace BotChat.App.Views.ViewCells;
 public partial class ImageViewCell : ViewCell
 {
     public static readonly BindableProperty TextProperty =
-   BindableProperty.Create("Text", typeof(string), typeof(MessageViewCell), "");
+   BindableProperty.Create("Text", typeof(string), typeof(MessageViewCell), "", propertyChanged: TextPropertyChanged);
 
     public static readonly BindableProperty TypeProperty =
    BindableProperty.Create("Type", typeof(ChatType), typeof(MessageViewCell));
@@ -56,6 +56,13 @@ public partial class ImageViewCell : ViewCell
         MainVSL.Padding = new Thickness(5, 15, 0, 15);
     }
 
+    static void TextPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        var imageViewCell = (ImageViewCell)bindable;
+        if (newValue.ToString().Length > 100)
+            imageViewCell.AnswerImage.Source = $"data:image/png;base64, {newValue}";
+    }
+
     private void VolumeOffBtn_Clicked(object sender, EventArgs e)
     {
         (Shell.Current.CurrentPage.BindingContext as MainViewModel).VolumeOff();
@@ -75,27 +82,23 @@ public partial class ImageViewCell : ViewCell
         var imageButton = (ImageButton)sender;
         var vsl = imageButton.Parent.Parent as VerticalStackLayout;
         var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
-        var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
-#if ANDROID
-        using (HttpClient client = new HttpClient())
+        var base64 = (hsl.Last() as Image).Source.ToString().Replace("File: data:image/png;base64,", string.Empty).Trim();
+        //#if ANDROID
+        var stream = new MemoryStream(Convert.FromBase64String(base64));
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+        string fileName = $"generated_image_{Guid.NewGuid().ToString("N")}.png";
+        if (!Directory.Exists(path))
         {
-            using (var response = await client.GetAsync(url))
-            {
-                using (Stream stream = await response.Content.ReadAsStreamAsync())
-                {
-                    string path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
-                    string fileName = $"generated_image_{Guid.NewGuid().ToString("N")}.png";
-                    string filePath = Path.Combine(path, fileName);
-                    using (FileStream outputFileStream = new FileStream(filePath, FileMode.Create))
-                    {
-                        stream.CopyTo(outputFileStream);
-                        var rof = new ShareFile(filePath);
-                        await Share.RequestAsync(new ShareFileRequest() { File = rof, Title = fileName });
-                    }
-                }
-            }
+            Directory.CreateDirectory(path);
         }
-#endif
+        string filePath = Path.Combine(path, fileName);
+        using (FileStream outputFileStream = new FileStream(filePath, FileMode.Create))
+        {
+            stream.CopyTo(outputFileStream);
+            var rof = new ShareFile(filePath);
+            await Share.RequestAsync(new ShareFileRequest() { File = rof, Title = fileName });
+        }
+        //#endif
     }
 
     private async void CopyContentBtn_Clicked(object sender, EventArgs e)
@@ -103,28 +106,29 @@ public partial class ImageViewCell : ViewCell
         var imageButton = (ImageButton)sender;
         var vsl = imageButton.Parent.Parent as VerticalStackLayout;
         var hsl = vsl.Children.FirstOrDefault() as HorizontalStackLayout;
-        var url = (hsl.Last() as Image).Source.ToString().Replace("Uri: ", string.Empty);
+        var base64 = (hsl.Last() as Image).Source.ToString().Replace("File: data:image/png;base64,", string.Empty).Trim();
+
+        string path = "";
 
 #if ANDROID
+        path =  "/storage/emulated/0/Download";
+#else
+        path = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+#endif
+
         if (await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Would you like to download this image?", "Yes", "No"))
         {
-            using (HttpClient client = new HttpClient())
+            var stream = new MemoryStream(Convert.FromBase64String(base64));
+            if (!Directory.Exists(path))
             {
-                using (var response = await client.GetAsync(url))
-                {
-                    using (Stream stream = await response.Content.ReadAsStreamAsync())
-                    {
-                        string path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
-                        string filePath = System.IO.Path.Combine(path, $"generated_image_{Guid.NewGuid().ToString("N")}.png");
-                        using (FileStream outputFileStream = new FileStream(filePath, FileMode.Create))
-                        {
-                            stream.CopyTo(outputFileStream);
-                            await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Image saved in downloads folder", "Ok");
-                        }
-                    }
-                }
+                Directory.CreateDirectory(path);
+            }
+            string filePath = Path.Combine(path, $"generated_image_{Guid.NewGuid().ToString("N")}.png");
+            using (FileStream outputFileStream = new FileStream(filePath, FileMode.Create))
+            {
+                stream.CopyTo(outputFileStream);
+                await Shell.Current.CurrentPage.DisplayAlert(string.Empty, "Image saved in downloads folder", "Ok");
             }
         }
-#endif
     }
 }

@@ -94,7 +94,6 @@ namespace BotChat.App.ViewModels
             //CrossMauiMTAdmob.Current.LoadRewarded("ca-app-pub-1642689140493347/1966780640");
             CrossMauiMTAdmob.Current.LoadInterstitial("ca-app-pub-1642689140493347/9988471399");
             CrossMauiMTAdmob.Current.OnInterstitialClosed += (s, e) => { CrossMauiMTAdmob.Current.LoadInterstitial("ca-app-pub-1642689140493347/9988471399"); };
-            //CrossMauiMTAdmob.Current.LoadRewarded("ca-app-pub-3940256099942544/5224354917");
 
 
         }
@@ -269,7 +268,9 @@ namespace BotChat.App.ViewModels
             }
 
             var result = await _chatGPTService.Completions(new(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text))), _userService.Settings.ChatGPTAIModel);
-            var answer = result.Choices.FirstOrDefault().Text.Replace(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text)), string.Empty).Trim();
+            var answer = result.Choices == null
+                ? "An error occurred while processing your request. Please try again."
+                : result.Choices?.FirstOrDefault().Text.Replace(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text)), string.Empty).Trim();
 
             waitingAnswer.Type = ChatType.AI;
             waitingAnswer.Text = answer;
@@ -326,9 +327,9 @@ namespace BotChat.App.ViewModels
 
             _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Remove(_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.FirstOrDefault(a => a.IsWaiting == true));
 
-            if (result.Data.Select(d => d.Url).Any())
+            if (result.Data.Select(d => d.Base64).Any())
             {
-                foreach (var img in result.Data.Select(d => d.Url).ToList())
+                foreach (var img in result.Data.Select(d => d.Base64).ToList())
                 {
                     _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Add(new() { Created = DateTime.Now, Text = img, Type = ChatType.AI });
                 }

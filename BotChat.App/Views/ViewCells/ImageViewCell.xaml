@@ -25,7 +25,7 @@
                         <Image WidthRequest="40" HeightRequest="40" HorizontalOptions="Center" VerticalOptions="Center" Source="openai.png">
                         </Image>
                     </Frame>
-                    <Image VerticalOptions="Center" HorizontalOptions="Center" MaximumWidthRequest="200" Source="{Binding Text}" />
+                    <Image x:Name="AnswerImage" VerticalOptions="Center" HorizontalOptions="Center" MaximumWidthRequest="200" WidthRequest="200" />
                 </HorizontalStackLayout>
                 
                 <Line BackgroundColor="White" />

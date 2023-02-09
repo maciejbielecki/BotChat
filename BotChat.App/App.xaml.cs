@@ -18,7 +18,7 @@ namespace BotChat.App
         {
             base.OnStart();
 
-            AppCenter.Start("android=e1d4b925-46de-44a9-86b3-f44c4f07404e", typeof(Analytics), typeof(Crashes));
+            //AppCenter.Start("android=e1d4b925-46de-44a9-86b3-f44c4f07404e", typeof(Analytics), typeof(Crashes));
         }
     }
 }

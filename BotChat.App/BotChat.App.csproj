@@ -45,6 +45,7 @@
 	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Images\chat.svg" />
 	  <None Remove="Resources\Images\content_copy.svg" />
+	  <None Remove="Resources\Images\delete_sweep.svg" />
 	  <None Remove="Resources\Images\image.svg" />
 	  <None Remove="Resources\Images\mic.svg" />
 	  <None Remove="Resources\Images\openai.png" />
