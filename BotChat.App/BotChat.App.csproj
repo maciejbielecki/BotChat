@@ -18,11 +18,19 @@
 		<ApplicationIdGuid>ed66b989-364b-46c2-a738-e7346bf16d1c</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
-		<ApplicationVersion>12</ApplicationVersion>
+		<ApplicationDisplayVersion>1.2</ApplicationDisplayVersion>
+		<ApplicationVersion>16</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android|AnyCPU'">
+	  <Optimize>True</Optimize>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <Optimize>True</Optimize>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -67,7 +75,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="CommunityToolkit.Maui" Version="4.0.0" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Microsoft.AppCenter" Version="5.0.1" />
 		<PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />

@@ -13,6 +13,12 @@ namespace BotChat.App
             Navigation.Add(new NavigationView(serviceProvider.GetService<HeaderViewModel>()));
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((Navigation.Children[0] as NavigationView).BindingContext as HeaderViewModel).IsClearButtonVisible = false;
+        }
+
         private void LanguagePicker_SelectedIndexChanged(object sender, EventArgs e)
         {
             _viewModel.LanguageChanged(sender, e);

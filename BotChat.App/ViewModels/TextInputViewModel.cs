@@ -21,6 +21,7 @@ namespace BotChat.App.ViewModels
 
     public partial class TextInputViewModel : ObservableObject
     {
+        public const string _errorMessage = "An error occurred while processing your request. Please try again.";
         public TextInputType Type { get; set; }
 
         public ImageRequestType? RequestType { get; set; }
@@ -267,9 +268,9 @@ namespace BotChat.App.ViewModels
                 }
             }
 
-            var result = await _chatGPTService.Completions(new(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text))), _userService.Settings.ChatGPTAIModel);
-            var answer = result.Choices == null
-                ? "An error occurred while processing your request. Please try again."
+            var result = await _chatGPTService.Completions(new(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => c.IsWaiting == false && c.Text.Contains(_errorMessage) == false).Select(c => c.Text))), _userService.Settings.ChatGPTAIModel);
+            var answer = result?.Choices == null
+                ? _errorMessage
                 : result.Choices?.FirstOrDefault().Text.Replace(string.Join('\n', _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers.Where(c => !c.IsWaiting).Select(c => c.Text)), string.Empty).Trim();
 
             waitingAnswer.Type = ChatType.AI;
@@ -327,12 +328,16 @@ namespace BotChat.App.ViewModels
 
             _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Remove(_chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.FirstOrDefault(a => a.IsWaiting == true));
 
-            if (result.Data.Select(d => d.Base64).Any())
+            if (result != null && result.Data.Select(d => d.Base64).Any())
             {
                 foreach (var img in result.Data.Select(d => d.Base64).ToList())
                 {
                     _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers.Add(new() { Created = DateTime.Now, Text = img, Type = ChatType.AI });
                 }
+            }
+            else
+            {
+                await Toast.Make(_errorMessage).Show();
             }
 
             OnSendImage.Invoke(null, null);

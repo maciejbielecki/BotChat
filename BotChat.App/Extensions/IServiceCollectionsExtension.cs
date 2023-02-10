@@ -15,7 +15,7 @@ namespace BotChat.App.Extensions
                 .AddScoped<SettingsViewModel>()
                 .AddScoped<LoginViewModel>()
                 .AddScoped<RegisterViewModel>()
-                .AddScoped<HeaderViewModel>()
+                .AddTransient<HeaderViewModel>()
                 .AddScoped<AccountViewModel>()
                 .AddScoped<ImageViewModel>()
                 .AddScoped<TextInputViewModel>()

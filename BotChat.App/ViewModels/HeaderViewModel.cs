@@ -1,20 +1,27 @@
-﻿using BotChat.App.Services;
-using ChatGPT;
+﻿using ChatGPT;
 using ChatGPT.Models;
-using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.AppCenter.Crashes;
 
 namespace BotChat.App.ViewModels
 {
     public partial class HeaderViewModel : ObservableObject
     {
+        [ObservableProperty]
+        bool isAccountButtonVisible;
+
+        [ObservableProperty]
+        bool isClearButtonVisible;
+
         private const bool _shouldAnimateNavigation = true;
         private readonly IChatGPTService _chatGPTService;
 
         public HeaderViewModel(IChatGPTService chatGPTService)
         {
             _chatGPTService = chatGPTService;
+            IsAccountButtonVisible = false;
+            IsClearButtonVisible = true;
         }
 
         [RelayCommand]
@@ -59,15 +66,22 @@ namespace BotChat.App.ViewModels
             var page = Shell.Current.CurrentPage;
             if (await page.DisplayAlert(string.Empty, "Would you like to clear messages?", "Yes", "No"))
             {
-                if (page is MainPage)
+                try
                 {
-                    _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers = new();
-                    ((page as MainPage).BindingContext as MainViewModel).OnSendMessage(null, null);
+                    if (page is MainPage)
+                    {
+                        _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Text).Answers = new();
+                        ((page as MainPage).BindingContext as MainViewModel).OnSendMessage(null, null);
+                    }
+                    else
+                    {
+                        _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers = new();
+                        ((page as ImagePage).BindingContext as ImageViewModel).OnSendImage(null, null);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    _chatGPTService.Conversations.FirstOrDefault(c => c.Type == TextInputType.Image).Answers = new();
-                    ((page as ImagePage).BindingContext as ImageViewModel).OnSendImage(null, null);
+                    Crashes.TrackError(ex);
                 }
             }
         }

@@ -10,14 +10,14 @@
             <ColumnDefinition Width="50"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackLayout IsVisible="false" Grid.Column="0">
+        <StackLayout IsVisible="{Binding IsAccountButtonVisible}" Grid.Column="0">
             <ImageButton x:Name="accountBtn" WidthRequest="30" Source="person.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding AccountButtonClickCommand}">
                 <ImageButton.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
                 </ImageButton.Behaviors>
             </ImageButton>
         </StackLayout>
-        <StackLayout IsVisible="true" Grid.Column="0">
+        <StackLayout IsVisible="{Binding IsClearButtonVisible}" Grid.Column="0">
             <ImageButton x:Name="clearBtn" WidthRequest="30" Source="delete_sweep.svg" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding ClearMessagesCommand}">
                 <ImageButton.Behaviors>
                     <toolkit:IconTintColorBehavior TintColor="{StaticResource White}" />
